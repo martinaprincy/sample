@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+ 
+  <title>sample1</title>
+</head>
+<body>
+    <div>
+        <h2>List of Names with Index</h2>
+        <pre>{{ formatNames() }}</pre>
+      </div>
+      
+      
+    <h2>Numbers add</h2>
+    <ul  *ngFor="let number of numbers ">
+      <li >{{number}}</li>
+    </ul>
+    <div>
+      <label for="">Enter a number</label>
+      <input type="number"[(ngModel)]="newNum">
+      <button (click)="add()">add</button>
+    </div>
+    <div>
+        <h2>List of Names with Serial Numbers</h2>
+        <table border="1">
+          <thead>
+            <tr>
+              <th>S.No</th>
+              <th>Name</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let name of names; let i = index">
+              <td>{{ i + 1 }}</td>
+              <td>{{ name }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <app-list></app-list>
+      
+      <label for="">Checked</label>
+      <input type="checkbox" [(ngModel)]="tableview">
+      <div *ngIf="tableview">
+       <app-list></app-list>
+      </div>
+      <div *ngIf="!tableview">
+      <app-table></app-table>
+      </div>
+      <label for="listRadio">List</label>
+      <input type="radio"  [(ngModel)]="view" value="list">
+      
+      <label for="tableRadio">Table</label>
+      <input type="radio"   [(ngModel)]="view" value="table">
+      
+      <label for="noneRadio">None</label>
+      <input type="radio" [(ngModel)]="view" value="none">
+      <div *ngIf="view === 'list'">
+        <app-list></app-list>
+      </div>
+      <div *ngIf="view === 'table'">
+        <app-table></app-table>
+      </div>
+      <label for="">Enter a number</label>
+      <input type="number"[(ngModel)]="num">
+      <div [ngSwitch]="num">
+        <div *ngSwitchCase="0">Invalid</div>
+        <div *ngSwitchCase="1">One</div>
+        <div *ngSwitchCase="2">Two</div>
+        <div *ngSwitchCase="3">Three</div>
+        <div *ngSwitchCase="4">Four</div>
+        <div *ngSwitchCase="5">Five</div>
+
+      </div>
+
+      <label for="listRadio">List</label>
+      <input type="radio"  [(ngModel)]="view" value="list">
+      
+      <label for="tableRadio">Table</label>
+      <input type="radio"   [(ngModel)]="view" value="table">
+      
+      <label for="noneRadio">None</label>
+      <input type="radio" [(ngModel)]="view" value="none">
+      <div [ngSwitch]="false">
+      <div *ngSwitchCase="'list'">
+        <app-list></app-list>
+      </div>
+      <div *ngSwitchCase="'table'">
+        <app-table></app-table>
+      </div>
+    </div>
+    <p>im {{name1|uppercase}}</p>
+    <p>IM WORKING IN {{company|lowercase}}</p>
+    <br>
+    <h1>Date!</h1>
+    <p>Date:{{myDate|date:'short'}}</p>
+    <p>Date:{{myDate|date:'long'}}</p>
+    <p>Date:{{myDate|date:'fullDate'}}</p>
+    <br>
+    

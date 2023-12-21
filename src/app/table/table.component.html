@@ -1,0 +1,22 @@
+<h2>table works!</h2>
+
+    <table border="1">
+        <thead>
+          <tr class=man>
+            <th>S.No</th>
+            <th>Movie</th>
+            <th>Hero name</th>
+            <th>Heroine name</th>
+         
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let movie of movies; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td>{{ movie.Movie }}</td>
+            <td>{{ movie.Heroname }}</td>
+            <td>{{ movie.Heroinename }}</td>
+            
+          </tr>
+        </tbody>
+      </table>
